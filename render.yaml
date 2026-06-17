@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-ecommerce-catalog
+    runtime: static
+    buildCommand: npm run build
+    startCommand: npx serve -s dist -l 4173
+    staticPublishPath: ./dist
+    env:
+      - key: NODE_ENV
+        value: production
+    routes:
+      - path: /
+        dest: /index.html
+        match: /.*
